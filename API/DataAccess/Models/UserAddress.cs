@@ -5,6 +5,7 @@
         public string? AddressId { get; set; }
         public string? Address { get; set; }
         public string? AddressLabel { get; set; }
-        public virtual User? User { get; set; }
+        public User? User { get; set; }
+        public virtual ICollection<Order>? Orders { get; set; }
     }
 }

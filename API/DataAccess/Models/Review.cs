@@ -8,8 +8,8 @@ public class Review
     [Required]
     [Range(1, 5)]
     public decimal ReviewRating { get; set; }
-    public virtual User? User { get; set; }
-    public virtual Menu? Menu { get; set; }
+    public User? User { get; set; }
+    public Menu? Menu { get; set; }
 
-    public virtual OrderItem? OrderedItem { get; set; }
+    public OrderItem? OrderedItem { get; set; }
 }

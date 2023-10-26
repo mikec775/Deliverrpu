@@ -7,6 +7,6 @@
         public string? CardName { get; set; }
         public string? PaymentAddress { get; set; }
         public DateTime ExpiryDate { get; set; }//here as well
-        public virtual User? User { get; set; }
+        public User? User { get; set; }
     }
 }

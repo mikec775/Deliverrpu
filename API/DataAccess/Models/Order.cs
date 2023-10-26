@@ -10,7 +10,8 @@ namespace DataAccess.Models
         public DateTime OrderDate { get; set; }
         [Required]
         public int TotalPrice { get; set; }
-        public virtual UserAddress? UserAddress { get; set; }
-        public virtual User? User { get; set; }
+        public UserAddress? UserAddress { get; set; }
+        public User? User { get; set; }
+        public ICollection<OrderItem>? OrderItems { get; set; }
     }
 }

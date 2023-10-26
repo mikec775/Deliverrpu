@@ -6,8 +6,9 @@ namespace DataAccess.Models
     {
         public int Quantity { get; set; }
 
-        public virtual Order? Order { get; set; }
-        public virtual Menu? Menu { get; set; }
+        public Order? Order { get; set; }
+        public Menu? Menu { get; set; }
+        public virtual ICollection<Review>? Reviews { get; set; } 
     }
 }
 

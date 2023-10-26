@@ -9,5 +9,7 @@
         public int MenuPrepTime { get; set; }
         public string? MenuImage { get; set; }
         public decimal MenuPrice { get; set; }
+        public virtual ICollection<MenuCategory>? MenuCategories { get; set; } 
+        public virtual ICollection<OrderItem>? OrderItems { get; set; }
     }
 }
