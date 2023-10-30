@@ -8,6 +8,8 @@ namespace DataAccess.Models
         public string? CategoryId { get; set; }
         [Required]
         public string? Category { get; set; }
+        [Required]
+        public string? MenuId { get; set; }
         public Menu? Menu { get; set; }
     }
 }

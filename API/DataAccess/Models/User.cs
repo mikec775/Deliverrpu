@@ -12,6 +12,7 @@ namespace DataAccess.Models
         public virtual ICollection<Review>? Reviews { get; set; }
         public virtual ICollection<Order>? Orders { get; set; }
         public virtual ICollection<UserPaymentDetails>? UserPaymentDetails { get; set; }
+        public virtual ICollection<UserAddress>? UserAddresses { get; set; }
 
     }
 }
