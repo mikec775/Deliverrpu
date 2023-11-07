@@ -8,10 +8,13 @@ namespace DataAccess.Extensions
         public static void SetUpPrimaryKeys(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Menu>().HasKey(m => m.MenuId);
+            modelBuilder.Entity<Menu>().Property(m => m.MenuId).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<MenuCategory>().HasKey(c => c.CategoryId);
+            modelBuilder.Entity<MenuCategory>().Property(c => c.CategoryId).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<Order>().HasKey(o => o.OrderId);
+            modelBuilder.Entity<Order>().Property(o => o.OrderId).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<OrderItem>().HasKey(oi => new
             {
@@ -25,10 +28,13 @@ namespace DataAccess.Extensions
                 r.OrderItemId
             });
             modelBuilder.Entity<User>().HasKey(u => u.UserID);
+            modelBuilder.Entity<User>().Property(u => u.UserID).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<UserAddress>().HasKey(ua => ua.AddressId);
+            modelBuilder.Entity<UserAddress>().Property(u => u.AddressId).ValueGeneratedOnAdd();
 
             modelBuilder.Entity<UserPaymentDetails>().HasKey(pd => pd.CardId);
+            modelBuilder.Entity<UserPaymentDetails>().Property(upd => upd.CardId).ValueGeneratedOnAdd();
         }
 
         public static void SetUpForeignKeys(this ModelBuilder modelBuilder)
