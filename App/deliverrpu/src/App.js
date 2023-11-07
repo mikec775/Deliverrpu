@@ -1,21 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
+import MenuPage from "./menuPage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Deliverrpu</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Deliverrpu
-        </a>
-      </header>
+      <Header></Header>
+      <MenuPage></MenuPage>
     </div>
   );
 }

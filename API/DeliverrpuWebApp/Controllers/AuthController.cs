@@ -1,20 +1,54 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLogic.Interfaces;
+using DataAccess.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DeliverrpuWebApp.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuthController : ControllerBase
     {
-        public AuthController()
+        private readonly IAuthService _authService;
+        public AuthController(IAuthService authService)
         {
-
+            this._authService = authService;
         }
 
         [HttpGet(Name = "Login")]
-        public ActionResult<WeatherForecast> Login([FromBody] string username, string password)
+        public async Task<ActionResult<User>> Login([FromHeader] string email, [FromHeader] string password)
         {
-            return Ok();
+            try
+            {
+                return Ok(await _authService.Login(email, password));
+            }
+            catch (ArgumentNullException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost(Name = "Register")]
+        public async Task<ActionResult<User>> Register([FromBody] User user)
+        {
+            try
+            {
+                return Ok(await _authService.Register(user));
+            }
+            catch (ArgumentNullException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
