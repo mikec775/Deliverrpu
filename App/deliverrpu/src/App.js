@@ -1,12 +1,14 @@
 import "./App.css";
 import Header from "./Header";
 import MenuPage from "./menuPage";
+import StickyFooter from "./StickyFooter";
 
 function App() {
   return (
     <div className="App">
-      <Header></Header>
-      <MenuPage></MenuPage>
+      <Header/>
+      <MenuPage />
+      <StickyFooter />
     </div>
   );
 }
