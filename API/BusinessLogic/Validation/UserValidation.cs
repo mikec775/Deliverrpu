@@ -13,7 +13,7 @@ namespace BusinessLogic.Validation
             RuleFor(u => u.Email).MinimumLength(4).WithMessage("Email must not be less than 4 symbols");
             RuleFor(u => u.Email).MaximumLength(40).WithMessage("Username must not be more than 40 symbols");
 
-            RuleFor(u => u.PasswordHash).MaximumLength(8).WithMessage("Password must be more than 8 symbols");
+            RuleFor(u => u.PasswordHash).MinimumLength(8).WithMessage("Password must be more than 8 symbols");
             RuleFor(u => u.PasswordHash).Must(ValidatePassword!).WithMessage("Password must contain at least on digit, upper and lower case letters");
         }
         private bool ValidatePassword(string password)
@@ -24,7 +24,7 @@ namespace BusinessLogic.Validation
                 return false;
             if (!password.Any(p => char.IsUpper(p)))
                 return false;
-            return false;
+            return true;
         }
     }
 }
