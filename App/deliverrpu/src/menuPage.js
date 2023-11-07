@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Box, Stack, Card, CardContent, Typography } from "@mui/material";
+import { addToCart } from "./Cart";
 
 const menuItems = [
   {
@@ -36,7 +37,10 @@ const MenuPage = () => {
         {menuItems.map((item) => (
           <Card>
             <CardContent>
-              <Typography variant="h4">{item.name}</Typography>
+               <Typography variant="h4">{item.name}</Typography>
+
+               <Button variant="contained" color="primary" onClick={() => addToCart(item)}> Add to Cart</Button>
+
             </CardContent>
           </Card>
         ))}
