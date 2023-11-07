@@ -2,11 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 public class Review
 {
-    [Required]
     public string? ReviewText { get; set; }
-
-    [Required]
-    [Range(1, 5)]
     public decimal ReviewRating { get; set; }
     public string? UserId { get; set; }
     public User? User { get; set; }

@@ -4,11 +4,8 @@ namespace DataAccess.Models
 {
     public class Order
     {
-        [Required]
         public string? OrderId { get; set; }
-        [Required]
         public DateTime OrderDate { get; set; }
-        [Required]
         public int TotalPrice { get; set; }
         public string? UserAddressId { get; set; }
         public UserAddress? UserAddress { get; set; }

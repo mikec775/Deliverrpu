@@ -38,7 +38,7 @@ namespace BusinessLogic.Services
             ValidationResult result = await _validationRules.ValidateAsync(newUser);
 
             if (!result.IsValid)
-                throw new ArgumentException($"Validation failed: {result.Errors}");
+                throw new ArgumentException($"Validation failed: {string.Join(",", result.Errors)}");
 
             newUser.PasswordHash = HashHelper.HashPassword(newUser.PasswordHash!);
             if (await _db.Users!.AnyAsync(u => u.Email == newUser.Email))
