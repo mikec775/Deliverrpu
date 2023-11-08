@@ -11,7 +11,7 @@ const menuItems = [
     preptime: "15min",
     image: "", //image path
     price: 10.99,
-  }
+  },
 ];
 
 const ShoppingCart = () => {
@@ -27,6 +27,9 @@ const ShoppingCart = () => {
     });
   };
 
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => total + item.price, 0);
+  };
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   };
