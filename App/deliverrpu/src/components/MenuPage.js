@@ -1,6 +1,13 @@
 import * as React from "react";
-import { Box, Stack, Card, CardContent, Typography, Button } from "@mui/material";
-import { addToCart } from "./cart";
+import {
+  Box,
+  Stack,
+  Card,
+  CardContent,
+  Typography,
+  Button,
+} from "@mui/material";
+import { addToCart } from "./Cart";
 // import Link from "@mui/material/Link";
 import { Link } from "react-router-dom";
 
@@ -42,18 +49,29 @@ const MenuPage = () => {
         {menuItems.map((item) => (
           <Card key={item.id}>
             <CardContent>
-                 {/*<Typography variant="h4">{item.name}</Typography>*/}
-                  <Typography>
-                    <Link to="/menuItemDetails">
-                      <Button>
-                        <Typography variant="h4" style={{ color: "black"}}>{item.name}</Typography>
-                      </Button>
-                    </Link>
-                  </Typography>
-                  <Link to="/menuItemDetails">
-                    <Button onClick={() => console.log("Viewed")}>View Details</Button>
-                  </Link>
-               <Button variant="contained" color="primary" onClick={() => addToCart(item)}> Add to Cart</Button>
+              {/*<Typography variant="h4">{item.name}</Typography>*/}
+              <Typography>
+                <Link to="/menuItemDetails">
+                  <Button>
+                    <Typography variant="h4" style={{ color: "black" }}>
+                      {item.name}
+                    </Typography>
+                  </Button>
+                </Link>
+              </Typography>
+              <Link to="/menuItemDetails">
+                <Button onClick={() => console.log("Viewed")}>
+                  View Details
+                </Button>
+              </Link>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => addToCart(item)}
+              >
+                {" "}
+                Add to Cart
+              </Button>
             </CardContent>
           </Card>
         ))}
