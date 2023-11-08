@@ -1,9 +1,12 @@
 import * as React from "react";
 import { Box, Stack, Card, CardContent, Typography, Button } from "@mui/material";
 import { addToCart } from "./cart";
+// import Link from "@mui/material/Link";
+import { Link } from "react-router-dom";
 
 const menuItems = [
   {
+    id: 1,
     name: "Fried Chicken",
     description: "best fried chicken in town",
     nutrience: "260kcal",
@@ -12,6 +15,7 @@ const menuItems = [
     price: 10.99,
   },
   {
+    id: 2,
     name: "Hamburger",
     description: "juicy hamburger with cheese",
     nutrience: "491kcal",
@@ -20,6 +24,7 @@ const menuItems = [
     price: 12.99,
   },
   {
+    id: 3,
     name: "Fries",
     description:
       "premium Russet Burbank variety potatoes for that fluffy inside, crispy outside taste",
@@ -35,10 +40,19 @@ const MenuPage = () => {
     <Box sx={{ width: "100%" }}>
       <Stack spacing={1} direction={"column"}>
         {menuItems.map((item) => (
-          <Card>
+          <Card key={item.id}>
             <CardContent>
-               <Typography variant="h4">{item.name}</Typography>
-               <Button onClick={() => console.log("Viewed")}>View Details</Button>
+                 {/*<Typography variant="h4">{item.name}</Typography>*/}
+                  <Typography>
+                    <Link to="/menuItemDetails">
+                      <Button>
+                        <Typography variant="h4" style={{ color: "black"}}>{item.name}</Typography>
+                      </Button>
+                    </Link>
+                  </Typography>
+                  <Link to="/menuItemDetails">
+                    <Button onClick={() => console.log("Viewed")}>View Details</Button>
+                  </Link>
                <Button variant="contained" color="primary" onClick={() => addToCart(item)}> Add to Cart</Button>
             </CardContent>
           </Card>

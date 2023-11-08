@@ -20,6 +20,7 @@ function App() {
             <Header />
             <Routes>
                 <Route>
+                    <Route path="/" element={<MenuPage />} />
                     <Route path="/menuPage" element={<MenuPage />} />
                     <Route path="/menuItemDetails" element={<MenuItemDetails />} />
                 </Route>
