@@ -1,19 +1,23 @@
 import "./App.css";
-import Header from "./Header";
-import MenuPage from "./menuPage";
+import {useState} from "react";
 
-import ShoppingCart from "./cart";
 import { ToastContainer } from "react-toastify";
 import "./reactToastify.css";
-import StickyFooter from "./StickyFooter";
+
+import Header from "./components/Header";
+import MenuPage from "./components/MenuPage";
+import ShoppingCart from "./components/Cart";
+import StickyFooter from "./components/StickyFooter";
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <div className="App">
       <Header />
+      <MenuPage setCartItems={setCartItems} />
       <ToastContainer position="top-right" autoClose={3000} />
-      <ShoppingCart></ShoppingCart>
-      <MenuPage />
+      <ShoppingCart cartItems={cartItems} setCartItems={setCartItems}></ShoppingCart>
       <StickyFooter />
     </div>
   );

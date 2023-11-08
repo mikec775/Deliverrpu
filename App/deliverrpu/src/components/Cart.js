@@ -1,29 +1,9 @@
-import React, { useState } from "react";
 import toast from "react-hot-toast";
 
-export const addToCart = (item, cartItems, setCartItems) => {
-    const updatedCart = [...cartItems, item];
-    setCartItems(updatedCart);
-    //if called
-    console.log("added");
-    toast.success(`${item.name} added to the cart`, {
-        position: "top-right",
-        autoClose: 2000,
-    });
-};
-const ShoppingCart = () => {
-    const [cartItems, setCartItems] = useState([]);
+export 
 
-    // const addToCart = (item) => {
-    //     setCartItems([...cartItems, item]);
-    //
-    //     toast.success(`${item.name} added to the cart`, {
-    //         position: "top-right",
-    //         autoClose: 2000,
-    //     });
-    //
-    // };
-
+const ShoppingCart = ({cartItems, setCartItems}) => {
+    // const [cartItems, setCartItems] = useState([]);
 
     const removeFromCart = (index) => {
         const updatedCart = [...cartItems];
@@ -54,7 +34,7 @@ const ShoppingCart = () => {
                     </li>
                 ))}
             </ul>
-            <p>Total: ${calculateTotal()}</p>
+            <p>Total: $ {calculateTotal()}</p>
         </div>
     );
 };

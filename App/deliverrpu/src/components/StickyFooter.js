@@ -31,7 +31,7 @@ export default function StickyFooter() {
           minHeight: "100vh",
         }}
       >
-=
+
         <Box
           component="footer"
           sx={{

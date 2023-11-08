@@ -1,6 +1,6 @@
 import * as React from "react";
+import toast from "react-hot-toast";
 import { Box, Stack, Card, CardContent, Typography, Button } from "@mui/material";
-import { addToCart } from "./cart";
 
 const menuItems = [
   {
@@ -30,7 +30,17 @@ const menuItems = [
   },
 ];
 
-const MenuPage = () => {
+
+
+const MenuPage = ({ setCartItems }) => {
+  const addToCart = (item) => {
+    setCartItems(cartItems => [...cartItems, item]);
+    //if called
+    toast.success(`${item.name} added to the cart`, {
+      position: "top-right",
+      autoClose: 2000,
+    });
+  };
   return (
     <Box sx={{ width: "100%" }}>
       <Stack spacing={1} direction={"column"}>
