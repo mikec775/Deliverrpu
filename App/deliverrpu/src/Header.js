@@ -14,6 +14,8 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import {ToastContainer} from "react-toastify";
+import ShoppingCart from "./cart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -176,6 +178,9 @@ export default function Header() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
+          <ToastContainer position="top-right" autoClose={3000} />
+          <ShoppingCart></ShoppingCart>
+          <ToastContainer position="top-right" autoClose={3000} />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton

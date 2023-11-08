@@ -13,7 +13,6 @@ export const addToCart = (item, cartItems, setCartItems) => {
 };
 const ShoppingCart = () => {
     const [cartItems, setCartItems] = useState([]);
-
     // const addToCart = (item) => {
     //     setCartItems([...cartItems, item]);
     //

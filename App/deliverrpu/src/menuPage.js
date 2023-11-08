@@ -38,9 +38,8 @@ const MenuPage = () => {
           <Card>
             <CardContent>
                <Typography variant="h4">{item.name}</Typography>
-
+               <Button onClick={() => console.log("Viewed")}>View Details</Button>
                <Button variant="contained" color="primary" onClick={() => addToCart(item)}> Add to Cart</Button>
-
             </CardContent>
           </Card>
         ))}
