@@ -30,6 +30,7 @@ namespace DataAccess
             modelBuilder.SetUpPrimaryKeys();
             modelBuilder.SetUpForeignKeys();
             modelBuilder.SetUpIndexes();
+            modelBuilder.SeedDataInDb();
         }
 
 
