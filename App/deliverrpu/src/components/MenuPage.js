@@ -7,8 +7,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-import { addToCart } from "./Cart";
-// import Link from "@mui/material/Link";
+import toast, {Toaster} from "react-hot-toast";
 import { Link } from "react-router-dom";
 
 const menuItems = [
@@ -42,42 +41,52 @@ const menuItems = [
   },
 ];
 
-const MenuPage = () => {
-  return (
-    <Box sx={{ width: "100%" }}>
-      <Stack spacing={1} direction={"column"}>
-        {menuItems.map((item) => (
-          <Card key={item.id}>
-            <CardContent>
-              {/*<Typography variant="h4">{item.name}</Typography>*/}
-              <Typography>
-                <Link to="/menuItemDetails">
-                  <Button>
-                    <Typography variant="h4" style={{ color: "black" }}>
-                      {item.name}
-                    </Typography>
+const MenuPage = ({setCartItems}) => {
+    const addToCart = (item) => { 
+        setCartItems((curr) => [...curr, item]);
+        toast.success(`${item.name} added to cart`, {
+            autoClose: 2000,
+        });
+    }
+
+    return (
+      <>
+        <Toaster position="bottom-right" reverseOrder={false} />
+        <Box sx={{ width: "100%" }}>
+          <Stack spacing={1} direction={"column"}>
+            {menuItems.map((item) => (
+              <Card key={item.id}>
+                <CardContent>
+                  {/*<Typography variant="h4">{item.name}</Typography>*/}
+                  <Typography>
+                    <Link to="/menuItemDetails">
+                      <Button>
+                        <Typography variant="h4" style={{ color: "black" }}>
+                          {item.name}
+                        </Typography>
+                      </Button>
+                    </Link>
+                  </Typography>
+                  <Link to="/menuItemDetails">
+                    <Button onClick={() => console.log("Viewed")}>
+                      View Details
+                    </Button>
+                  </Link>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => addToCart(item)}
+                  >
+                    {" "}
+                    Add to Cart
                   </Button>
-                </Link>
-              </Typography>
-              <Link to="/menuItemDetails">
-                <Button onClick={() => console.log("Viewed")}>
-                  View Details
-                </Button>
-              </Link>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => addToCart(item)}
-              >
-                {" "}
-                Add to Cart
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
-      </Stack>
-    </Box>
-  );
+                </CardContent>
+              </Card>
+            ))}
+          </Stack>
+        </Box>
+      </>
+    );
 };
 
 export default MenuPage;

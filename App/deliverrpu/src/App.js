@@ -1,17 +1,12 @@
 import "./App.css";
-import {useState} from "react";
+import { useState } from "react";
 
-import { ToastContainer } from "react-toastify";
 import "./reactToastify.css";
 
 import Header from "./components/Header";
 import MenuPage from "./components/MenuPage";
 import ShoppingCart from "./components/Cart";
-
-import Header from "./components/Header";
-import MenuPage from "./components/MenuPage";
-import ShoppingCart from "./components/Cart";
-import StickyFooter from "./components/components/StickyFooter";
+import StickyFooter from "./components/StickyFooter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MenuItemDetails from "./menuItemDetails";
 
@@ -19,26 +14,22 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   return (
-    // <div className="App">
-    //   <Header />
-    //   <ToastContainer position="top-right" autoClose={3000} />
-    //   <ShoppingCart></ShoppingCart>
-    //   <MenuPage />
-    //   <StickyFooter />
-    // </div>
-      <div className="App">
-        <BrowserRouter>
-            <Header />
-            <Routes>
-                <Route>
-                    <Route path="/" element={<MenuPage />} />
-                    <Route path="/menuPage" element={<MenuPage />} />
-                    <Route path="/menuItemDetails" element={<MenuItemDetails />} />
-                </Route>
-            </Routes>
-            <StickyFooter />
-        </BrowserRouter>
-      </div>
+    <div className="App">
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<MenuPage setCartItems={setCartItems} />} />
+          <Route path="/menuItemDetails" element={<MenuItemDetails />} />
+          <Route
+            path="/cart"
+            element={
+              <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} />
+            }
+          />
+        </Routes>
+        <StickyFooter />
+      </BrowserRouter>
+    </div>
   );
 }
 

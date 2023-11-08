@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
+import { Link } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,11 +12,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import {ToastContainer} from "react-toastify";
-import ShoppingCart from "./cart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -58,10 +57,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
-  const [anchorEl, setAnchorEl] =
-    React.useState()
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState()
+  const [anchorEl, setAnchorEl] = React.useState();
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState();
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -125,17 +122,13 @@ export default function Header() {
       <MenuItem>
         <IconButton size="large" aria-label="messages" color="inherit">
           <Badge>
-            <MailIcon />
+            <ShoppingCartIcon />
           </Badge>
         </IconButton>
         <p>Messages</p>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="notifications"
-          color="inherit"
-        >
+        <IconButton size="large" aria-label="notifications" color="inherit">
           <Badge>
             <NotificationsIcon />
           </Badge>
@@ -167,7 +160,9 @@ export default function Header() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            Deliverrpu
+            <Link href="/" color="inherit">
+              Deliverrpu
+            </Link>
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -178,25 +173,15 @@ export default function Header() {
               inputProps={{ "aria-label": "search" }}
             />
           </Search>
-          <ToastContainer position="top-right" autoClose={3000} />
-          <ShoppingCart></ShoppingCart>
-          <ToastContainer position="top-right" autoClose={3000} />
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="messages"
-              color="inherit"
-            >
+            <IconButton size="large" aria-label="cart" color="inherit" href="/cart">
               <Badge>
-                <MailIcon />
+                  <ShoppingCartIcon />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
-              aria-label="notifications"
-              color="inherit"
-            >
+            <IconButton size="large" aria-label="notifications" color="inherit">
               <Badge>
                 <NotificationsIcon />
               </Badge>
