@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Stack,
@@ -7,58 +7,31 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-import { addToCart } from "./Cart";
-// import Link from "@mui/material/Link";
+import { addToCart } from "./cart";
 import { Link } from "react-router-dom";
 
-const menuItems = [
-  {
-    id: 1,
-    name: "Fried Chicken",
-    description: "best fried chicken in town",
-    nutrience: "260kcal",
-    preptime: "15min",
-    image: "", //image path
-    price: 10.99,
-  },
-  {
-    id: 2,
-    name: "Hamburger",
-    description: "juicy hamburger with cheese",
-    nutrience: "491kcal",
-    preptime: "10min",
-    image: "",
-    price: 12.99,
-  },
-  {
-    id: 3,
-    name: "Fries",
-    description:
-      "premium Russet Burbank variety potatoes for that fluffy inside, crispy outside taste",
-    nutrience: "423kcal",
-    preptime: "8min",
-    image: "",
-    price: 4.99,
-  },
-];
-
 const MenuPage = () => {
+  const [menuItems, setMenuItems] = useState([]);
+
+  useEffect(() => {
+    return () => {
+      fetch("https://localhost:7278/api/menu")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setMenuItems(data);
+        })
+        .catch((err) => console.log(err));
+    };
+  }, []);
+
   return (
     <Box sx={{ width: "100%" }}>
       <Stack spacing={1} direction={"column"}>
         {menuItems.map((item) => (
-          <Card key={item.id}>
+          <Card key={item.menuId}>
             <CardContent>
-              {/*<Typography variant="h4">{item.name}</Typography>*/}
-              <Typography>
-                <Link to="/menuItemDetails">
-                  <Button>
-                    <Typography variant="h4" style={{ color: "black" }}>
-                      {item.name}
-                    </Typography>
-                  </Button>
-                </Link>
-              </Typography>
+              <Typography variant="h4">{item.menuName}</Typography>
               <Link to="/menuItemDetails">
                 <Button onClick={() => console.log("Viewed")}>
                   View Details
