@@ -7,7 +7,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-import { addToCart } from "./cart";
+import { addToCart } from "./Cart";
 import { Link } from "react-router-dom";
 
 const MenuPage = () => {

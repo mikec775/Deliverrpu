@@ -15,7 +15,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import {ToastContainer} from "react-toastify";
-import ShoppingCart from "./cart";
+import ShoppingCart from "./Cart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
