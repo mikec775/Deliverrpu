@@ -9,7 +9,10 @@ import StickyFooter from "./components/StickyFooter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MenuItemDetails from "./components/MenuItemDetails";
 
+
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -20,7 +23,7 @@ function App() {
           <Route
             path="/cart"
             element={
-              <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} />
+              <ShoppingCart />
             }
           />
         </Routes>

@@ -30,9 +30,7 @@ const ShoppingCart = () => {
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   };
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price, 0);
-  };
+
 
   return (
     <>
