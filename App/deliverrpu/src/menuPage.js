@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Box, Stack, Card, CardContent, Typography } from "@mui/material";
-import { addToCart } from "./Cart";
+import { Box, Stack, Card, CardContent, Typography, Button } from "@mui/material";
+import { addToCart } from "./cart";
 
 const menuItems = [
   {

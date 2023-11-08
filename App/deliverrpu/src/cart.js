@@ -1,32 +1,44 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
+export const addToCart = (item, cartItems, setCartItems) => {
+    const updatedCart = [...cartItems, item];
+    setCartItems(updatedCart);
+    //if called
+    console.log("added");
+    toast.success(`${item.name} added to the cart`, {
+        position: "top-right",
+        autoClose: 2000,
+    });
+};
 const ShoppingCart = () => {
     const [cartItems, setCartItems] = useState([]);
 
-    const addToCart = (item) => {
-        setCartItems([...cartItems, item]);
+    // const addToCart = (item) => {
+    //     setCartItems([...cartItems, item]);
+    //
+    //     toast.success(`${item.name} added to the cart`, {
+    //         position: "top-right",
+    //         autoClose: 2000,
+    //     });
+    //
+    // };
 
-        toast.success(`${item.name} added to the cart`, {
-            position: "top-right",
-            autoClose: 2000,
-        });
 
-    };
-
-  
     const removeFromCart = (index) => {
         const updatedCart = [...cartItems];
+        const removedItem = cartItems[index];
         updatedCart.splice(index, 1);
         setCartItems(updatedCart);
 
-        toast.success(`${item.name} removed the cart`, {
+        toast.success(`${removedItem.name} removed from cart`, {
             position: "top-right",
             autoClose: 2000,
         });
 
     };
 
-   
+
     const calculateTotal = () => {
         return cartItems.reduce((total, item) => total + item.price, 0);
     };
@@ -48,3 +60,4 @@ const ShoppingCart = () => {
 };
 
 export default ShoppingCart;
+

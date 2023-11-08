@@ -4,7 +4,7 @@ import MenuPage from "./menuPage";
 
 import ShoppingCart from "./cart";
 import { ToastContainer } from "react-toastify";
-import "./ReactToastify.css";
+import "./reactToastify.css";
 import StickyFooter from "./StickyFooter";
 
 function App() {
