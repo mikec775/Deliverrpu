@@ -1,15 +1,17 @@
 import "./App.css";
-import Header from "./Header";
-import MenuPage from "./menuPage";
+import {useState} from "react";
 
-import ShoppingCart from "./cart";
 import { ToastContainer } from "react-toastify";
 import "./reactToastify.css";
 
 import Header from "./components/Header";
 import MenuPage from "./components/MenuPage";
 import ShoppingCart from "./components/Cart";
-import StickyFooter from "./components/StickyFooter";
+
+import Header from "./components/Header";
+import MenuPage from "./components/MenuPage";
+import ShoppingCart from "./components/Cart";
+import StickyFooter from "./components/components/StickyFooter";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MenuItemDetails from "./menuItemDetails";
 
