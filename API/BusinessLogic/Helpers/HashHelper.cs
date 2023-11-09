@@ -13,7 +13,8 @@ namespace BusinessLogic.Helpers
         }
         public static bool CompareHash(string hashToCompare, string passwordToCompare)
         {
-            return string.Equals(hashToCompare, HashPassword(passwordToCompare));
+            string hash = HashPassword(passwordToCompare);
+            return string.Equals(hashToCompare, hash);
         }
     }
 }

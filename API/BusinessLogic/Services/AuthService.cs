@@ -24,7 +24,7 @@ namespace BusinessLogic.Services
             if (user == null)
                 throw new ArgumentNullException(nameof(User), "User with provided email was not found");
 
-            if (HashHelper.CompareHash(user.PasswordHash!, password))
+            if (!HashHelper.CompareHash(user.PasswordHash!, password))
                 throw new ArgumentException("Passwords do not match");
 
             return user;
@@ -42,7 +42,7 @@ namespace BusinessLogic.Services
 
             newUser.PasswordHash = HashHelper.HashPassword(newUser.PasswordHash!);
             if (await _db.Users!.AnyAsync(u => u.Email == newUser.Email))
-                throw new InvalidOperationException("User with provided username already exists");
+                throw new InvalidOperationException("User with provided email already exists");
 
             await _db.Users!.AddAsync(newUser);
             await _db.SaveChangesAsync();
